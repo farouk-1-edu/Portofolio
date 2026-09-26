@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farouk Elsayed | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #38bdf8;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --hero-bg: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+            --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.06);
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --soft-tag-bg: #ffffff;
+            --soft-tag-border: #bfdbfe;
+            --project-bg: #f8fafc;
+            --contact-bg: #0f172a;
+            --footer-bg: #0c1222;
+            --btn-outline-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #f1f5f9;
+            --accent: #38bdf8;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --nav-bg: rgba(15, 23, 42, 0.95);
+            --hero-bg: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            --border: #334155;
+            --shadow: rgba(0,0,0,0.3);
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --soft-tag-bg: #1e293b;
+            --soft-tag-border: #3b82f6;
+            --project-bg: #1e293b;
+            --contact-bg: #020617;
+            --footer-bg: #020617;
+            --btn-outline-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px var(--shadow);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: var(--card);
+            border: 1.5px solid var(--border);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 1.5rem 4rem;
+            background: var(--hero-bg);
+            transition: background 0.3s ease;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.6rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-outline {
+            background: var(--btn-outline-bg);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-wrapper {
+            width: 300px;
+            height: 380px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 5px solid var(--card);
+            box-shadow: 0 20px 45px rgba(37, 99, 235, 0.28);
+            position: relative;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 28px;
+            border: 2px dashed var(--accent);
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .photo-ring {
+            display: none;
+        }
+
+        /* Sections common */
+        section {
+            padding: 5rem 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about {
+            background: var(--card);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Why Me */
+        .why-me {
+            background: var(--bg);
+        }
+
+        .why-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .why-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow);
+        }
+
+        .why-card .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .why-card .icon {
+            background: linear-gradient(135deg, #1e3a5f, #3b2a5a);
+        }
+
+        .why-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--secondary);
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Education */
+        .education {
+            background: var(--card);
+        }
+
+        .edu-timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .edu-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .edu-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 2.5rem;
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-dot {
+            position: absolute;
+            left: 11px;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--card);
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .edu-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-item .meta {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+        .skills {
+            background: var(--bg);
+        }
+
+        .skills-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .skill-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .skill-card .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: var(--secondary);
+        }
+
+        .skill-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .soft-skills {
+            max-width: 900px;
+            margin: 2.5rem auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .soft-tag {
+            background: var(--soft-tag-bg);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+            border: 1.5px solid var(--soft-tag-border);
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        /* Services */
+        .services {
+            background: var(--bg);
+        }
+
+        .services-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .service-card .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Projects */
+        .projects {
+            background: var(--card);
+        }
+
+        .projects-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--project-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px var(--shadow);
+            border: 1px solid var(--border);
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            padding: 1.3rem 1.8rem;
+            color: white;
+        }
+
+        .project-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-header span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .project-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: #0f172a;
+        }
+
+        .gallery-item {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .gallery-item:last-child {
+            border-bottom: none;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            background: #1e293b;
+        }
+
+        .gallery-caption {
+            padding: 1.5rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--project-bg);
+            color: var(--text);
+        }
+
+        .gallery-caption h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .gallery-caption p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        .project-body {
+            padding: 1.6rem 1.8rem;
+        }
+
+        .project-body > p {
+            color: var(--text-light);
+            font-size: 0.98rem;
+            margin-bottom: 1.1rem;
+            line-height: 1.65;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .tag {
+            background: #312e81;
+            color: #c7d2fe;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .project-btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .project-btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .project-btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .project-btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item img {
+                height: 220px;
+            }
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--contact-bg);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact .underline {
+            background: var(--accent);
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: #64748b;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--card);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 10px 20px var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .theme-toggle {
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .photo-wrapper {
+                width: 240px;
+                height: 300px;
+            }
+
+            .edu-timeline::before {
+                left: 12px;
+            }
+
+            .edu-dot {
+                left: 3px;
+            }
+
+            .edu-item {
+                padding-left: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Farouk<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#why-me">Why Me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Day/Night Mode">🌙</button>
+                </li>
+            </ul>
+            <button class="theme-toggle" id="themeToggleMobile" title="Toggle Day/Night Mode" style="display:none;">🌙</button>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Farouk Elsayed</span></h1>
+                <p class="title">Software Testing / QA Enthusiast & Front-End Developer</p>
+                <p>Second-year Computer Science student at Tanta University, passionate about building clean, unique designs and ensuring software quality through testing.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="Farouk_Elsayed_CV.pdf" download class="btn btn-outline">Download CV</a>
+                    <a href="https://github.com/farouk-1-edu" target="_blank" class="btn btn-outline">View GitHub</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="photo-ring"></div>
+                <div class="photo-wrapper">
+                    <img src="farouk-photo.jpg" alt="Farouk Elsayed">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="about-content">
+            <p>
+                I'm Farouk Elsayed, a second-year Computer Science student at the Faculty of Computers and Information, Tanta University. 
+                I'm deeply passionate about programming and software testing, and I love turning ideas into unique, well-crafted designs.
+            </p>
+            <p>
+                Currently training in Software Testing through the <strong>Digital Egypt Pioneers Initiative (DEPI)</strong>, I'm building a solid foundation 
+                in programming (C++, Python, Java) and manual testing fundamentals. I enjoy solving problems, paying attention to details, 
+                and continuously learning to grow as a developer and QA engineer. I also served as <strong>Team Leader</strong> in my DEPI round.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Me -->
+    <section class="why-me" id="why-me">
+        <div class="section-header">
+            <h2>Why Me?</h2>
+            <p>What makes me different</p>
+            <div class="underline"></div>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon">✨</div>
+                <h3>Transparent Skills Showcase</h3>
+                <p>I love showing clients all my skills and projects clearly. You can see exactly what I can deliver before we start working together.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon">⏰</div>
+                <h3>Highly Punctual</h3>
+                <p>I'm extremely disciplined with deadlines. Most of the time I deliver work before the agreed date — reliability is one of my strongest points.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon">🚀</div>
+                <h3>Passionate Learner</h3>
+                <p>I'm always eager to learn new technologies and improve. I continuously seek ways to deliver better results and exceed expectations.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon">🤝</div>
+                <h3>Client Satisfaction First</h3>
+                <p>I work hard to ensure the client is fully satisfied. I often provide extra value, offers, or features that clients didn't expect — free of charge or at no extra cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education" id="education">
+        <div class="section-header">
+            <h2>Education & Training</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="edu-timeline">
+            <div class="edu-item">
+                <div class="edu-dot"></div>
+                <h3>B.Sc. in Computer Science</h3>
+                <div class="meta">Faculty of Computers and Information, Tanta University • 2025 – 2029 (Expected)</div>
+                <p>Currently in the second year, building a strong foundation in computer science fundamentals.</p>
+            </div>
+            <div class="edu-item">
+                <div class="edu-dot"></div>
+                <h3>Software Testing Track — Digital Egypt Pioneers Initiative (DEPI)</h3>
+                <div class="meta">In Progress • 6-month intensive program</div>
+                <p>Theoretical and practical software testing training, including soft skills and English language development. Currently learning Java for manual testing tasks. Served as <strong>Team Leader</strong> in my DEPI round.</p>
+            </div>
+            <div class="edu-item">
+                <div class="edu-dot"></div>
+                <h3>C++ Programming Course</h3>
+                <div class="meta">Elzero Web School (Mostafa Saad style) • Completed</div>
+                <p>Comprehensive beginner-to-intermediate C++ course covering core programming fundamentals.</p>
+            </div>
+            <div class="edu-item">
+                <div class="edu-dot"></div>
+                <h3>Front-End Development Course</h3>
+                <div class="meta">Mansoura University • Completed</div>
+                <p>Hands-on training in modern front-end technologies and building interactive web applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="section-header">
+            <h2>Skills</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h4>Programming</h4>
+                <p>C++, Python, Java (basics)</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h4>Web Technologies</h4>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🧪</div>
+                <h4>Software Testing</h4>
+                <p>Manual testing fundamentals</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🛠️</div>
+                <h4>Tools</h4>
+                <p>Git, GitHub</p>
+            </div>
+        </div>
+        <div class="soft-skills">
+            <span class="soft-tag">Highly organized & punctual</span>
+            <span class="soft-tag">Works under pressure</span>
+            <span class="soft-tag">Adaptable to different conditions</span>
+            <span class="soft-tag">Strong attention to detail</span>
+            <span class="soft-tag">Problem-solving</span>
+            <span class="soft-tag">Team Leader in DEPI</span>
+            <span class="soft-tag">Passionate about work</span>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Services</h2>
+            <p>What I can help you with</p>
+            <div class="underline"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧪</div>
+                <h3>Manual Software Testing</h3>
+                <p>Thorough manual testing for websites and applications. I find bugs, check functionality, usability, and ensure everything works as expected before launch.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Front-End Development</h3>
+                <p>Building clean, responsive, and modern websites using HTML, CSS, and JavaScript. From landing pages to interactive web apps with smooth user experience.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Test Case Writing & Bug Reporting</h3>
+                <p>Writing clear test cases and detailed bug reports so developers can fix issues fast. Professional documentation that saves time and improves quality.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>UI / UX Quality Check</h3>
+                <p>Reviewing your website or app design and flow from a user’s perspective. I help improve clarity, consistency, and overall experience.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Website Improvements & Fixes</h3>
+                <p>Fixing layout issues, improving responsiveness, adding small features, or polishing existing front-end code to make it look more professional.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Freelance Support & Collaboration</h3>
+                <p>Available for remote work, internships, or short-term projects. Fast delivery, clear communication, and strong focus on client satisfaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <p>Some of the things I've built & tested</p>
+            <div class="underline"></div>
+        </div>
+        <div class="projects-list">
+
+            <!-- SkyGate -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>SkyGate — Flight Travel Website</h3>
+                    <span>Front-End Project</span>
+                </div>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="skygate-1.png" alt="SkyGate Home page">
+                        <div class="gallery-caption">
+                            <h4>Home / Landing</h4>
+                            <p>Hero section with live stats (active flights, routes, rating) and a clean introduction to the flight tracking experience.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="skygate-2.png" alt="SkyGate Flight Status Board">
+                        <div class="gallery-caption">
+                            <h4>Flight Status Board</h4>
+                            <p>Live departures table with search, flight codes, destinations, gates, and status badges (On Time / Boarding / Delayed / Cancelled).</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="skygate-3.png" alt="SkyGate Airport Services">
+                        <div class="gallery-caption">
+                            <h4>Airport Services</h4>
+                            <p>Cards for Free WiFi, Restaurants, Lounge, Duty-Free, Spa, Financial Services, Medical Clinic, and Parking — with VIP / New badges.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>A modern flight information website with a live filterable status board, digital boarding pass, airport services section, dark mode with persistent storage, and a live clock.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://farouk-1-edu.github.io/Sky-Gate/" target="_blank" class="project-btn project-btn-primary">Live Demo</a>
+                        <a href="https://github.com/farouk-1-edu/Sky-Gate" target="_blank" class="project-btn project-btn-outline">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- To-Do List -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>TaskBoard — To-Do List App</h3>
+                    <span>Front-End Project</span>
+                </div>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="todo-list.png" alt="TaskBoard To-Do List App">
+                        <div class="gallery-caption">
+                            <h4>Task Dashboard</h4>
+                            <p>Dark-themed task manager with total / done / remaining counters, progress bar, priority selector, and filters (All, Active, Done, High).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>A clean dark-themed task management app with progress tracking, priority filters, and a smooth user experience for organizing daily tasks.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://farouk-1-edu.github.io/To-do-list/" target="_blank" class="project-btn project-btn-primary">Live Demo</a>
+                        <a href="https://github.com/farouk-1-edu/To-do-list" target="_blank" class="project-btn project-btn-outline">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Cases -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Announcements Module — Test Cases</h3>
+                    <span>Software Testing / QA</span>
+                </div>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="testcases-1.png" alt="Test Cases Sheet - part 1">
+                        <div class="gallery-caption">
+                            <h4>Test Cases (Part 1)</h4>
+                            <p>Detailed test cases for viewing published/pending announcements by Super Admin and Standard Admin, including language and role checks.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="testcases-2.png" alt="Test Cases Sheet - part 2">
+                        <div class="gallery-caption">
+                            <h4>Test Cases (Part 2)</h4>
+                            <p>Scenarios for expired announcements, status transfer, deletion, and access restriction for Offer Approver Admin.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Comprehensive manual test cases for an Announcements module covering Super Admin, Standard Admin, and Offer Approver roles — with preconditions, steps, and expected results.</p>
+                    <div class="project-tags">
+                        <span class="tag">Manual Testing</span>
+                        <span class="tag">Test Cases</span>
+                        <span class="tag">QA</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://docs.google.com/spreadsheets/d/17ZNGbhr9ciUk-1bS2M8RJb4r-lLJOxM_X0NbDcjYsuk/edit?usp=sharing" target="_blank" class="project-btn project-btn-primary">View Test Cases</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java University Payroll -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Smart University Payroll System</h3>
+                    <span>Java • OOP Project</span>
+                </div>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="java-payroll.png" alt="University Payroll System console output">
+                        <div class="gallery-caption">
+                            <h4>Console Output (Run Result)</h4>
+                            <p>Successful run showing advisor load validation, exception handling, professor & administrator salaries, performance ratings, and total monthly disbursement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Object-oriented Java application for university personnel & compensation. Features abstract base class, polymorphism, custom exception handling, salary calculation, and performance evaluation.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Exception Handling</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/farouk-1-edu/UniversityPayroll" target="_blank" class="project-btn project-btn-primary">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align: center; margin-top: 2.5rem;">
+            <a href="https://github.com/farouk-1-edu" target="_blank" class="btn btn-primary">See More on GitHub →</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Let's Work Together</h2>
+            <div class="underline"></div>
+        </div>
+        <p>I'm currently looking for a remote internship or entry-level opportunity in Software Testing / QA. Feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:farouk3062007@gmail.com" class="contact-btn">📧 Email</a>
+            <a href="tel:+201017194190" class="contact-btn">📞 Call Me</a>
+            <a href="https://wa.me/201017194190" target="_blank" class="contact-btn">💬 WhatsApp</a>
+            <a href="https://linkedin.com/in/farouk306" target="_blank" class="contact-btn">💼 LinkedIn</a>
+            <a href="https://github.com/farouk-1-edu" target="_blank" class="contact-btn">🐙 GitHub</a>
+            <a href="Farouk_Elsayed_CV.pdf" download class="contact-btn">📄 Download CV</a>
+        </div>
+        <p style="font-size: 0.9rem; color: #64748b;">📍 Tanta, Egypt</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Farouk Elsayed. Built with passion.</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        const html = document.documentElement;
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+            themeToggleMobile.textContent = '☀️';
+        }
+
+        function toggleTheme() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                themeToggleMobile.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+                themeToggleMobile.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Show mobile theme toggle on small screens
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                themeToggleMobile.style.display = 'flex';
+                themeToggle.style.display = 'none';
+            } else {
+                themeToggleMobile.style.display = 'none';
+                themeToggle.style.display = 'flex';
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
